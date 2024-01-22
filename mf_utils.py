@@ -81,8 +81,11 @@ def wells_update_pumping_rates(well_pck, new_pumping_rates: dict) -> None:
     well_sp_data = well_pck.stress_period_data.get_data()
     
     # Change the pumping rates
+    nupdates = 0
     for sp, data in well_sp_data.items():
         data_updated = False
+        print(sp, data)
+        raise ValueError('finalizado')
         for i, well in enumerate(data):
             if (well[3], well[2], well[0][0], well[0][1]) in new_pumping_rates:
                 data[i] = (well[0], new_pumping_rates[(well[3], well[2], well[0][0], well[0][1])], well[2], well[3])
